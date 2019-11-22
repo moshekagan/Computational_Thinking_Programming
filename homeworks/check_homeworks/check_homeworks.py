@@ -27,14 +27,28 @@ def run_assignments(base_dir, students):
             input("--------> Next? ")
 
 
+def _get_exercise_number_prefix(file_name):
+    return '_'.join(file_name.split('_')[:2]) + '_'
+
+
+def _get_exercise_file_name_of_student(student_dir_path, exercise_file_name):
+    for submission_root, submission_subdirs, submission_filenames in os.walk(student_dir_path):
+        for file in submission_filenames:
+            if _get_exercise_number_prefix(file) == _get_exercise_number_prefix(exercise_file_name):
+                return file
+
+    return False
+
+
 def _run_all_student_assignments(student_dir_path, student_name):
     exercise_results = {}
 
     is_run_some_exe = False
     for exercise_file_name, inputs_to_exercise in ASSIGNMENTS_NAMES_AND_INPUTS.items():
-        exercise_path = student_dir_path + "/" + exercise_file_name
+        exercise_file_name_of_student = _get_exercise_file_name_of_student(student_dir_path, exercise_file_name)
 
-        if os.path.isfile(exercise_path):
+        if exercise_file_name_of_student:
+            exercise_path = student_dir_path + "/" + exercise_file_name_of_student
             try:
                 is_run_some_exe = True
                 _run_python_script(exercise_path, inputs_to_exercise)

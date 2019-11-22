@@ -10,11 +10,16 @@ def remove_zip_extention(zip_file_name):
     return zip_file_name.split(".zip")[0]
 
 
-def extract_zip_file(zip_file, path_where_to_extract):
+def extract_zip_file(zip_file, path_where_to_extract, original_zip_file_name=None):
     try:
         my_zipfile = zipfile.ZipFile(zip_file, mode='r')
         my_zipfile.extractall(path_where_to_extract)
         my_zipfile.close()
+
+        if original_zip_file_name and os.path.isdir(path_where_to_extract + '/' + remove_zip_extention(original_zip_file_name)):
+            for root, subdirs, filenames in os.walk(path_where_to_extract + '/' + remove_zip_extention(original_zip_file_name)):
+                for file in filenames:
+                    os.rename(root + '/' + file, path_where_to_extract + '/' + file)
 
         return True
     except:
@@ -56,7 +61,7 @@ def extract_submissions(base_subdir):
                             print('ERROR:: can`t remove dir. In [%s] directory there is more then 1 zip file!' % submission_dir_wrapper)
 
                         # print("About to extract zip file and remove it")
-                        if extract_zip_file(new_zip_file, remove_zip_extention(new_zip_file)):
+                        if extract_zip_file(new_zip_file, remove_zip_extention(new_zip_file), file):
                             os.remove(new_zip_file)
                         else:
                             add_comment_to_student(current_student_name, CANT_EXTRACT_ZIP_FILE)

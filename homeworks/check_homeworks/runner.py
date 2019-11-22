@@ -6,7 +6,7 @@ from homeworks.check_homeworks.config import *
 from homeworks.check_homeworks.extractor import extract_zip_file, extract_submissions
 from homeworks.check_homeworks.students import STUDENTS, save_students_result
 
-if DO_IT_FROM_BEGIN:
+if DO_IT_FROM_BEGIN and os.path.isdir(BASE_SUB_DIR):
     shutil.rmtree(BASE_SUB_DIR)
 
 
