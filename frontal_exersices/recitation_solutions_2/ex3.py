@@ -1,10 +1,10 @@
-FIRST_DEGREE = 5000
-SECOND_DEGREE = 15000
-THIRD_DEGREE = 30000
+FIRST_BRACKET = 5000
+SECOND_BRACKET = 15000
+THIRD_BRACKET = 30000
 
-SECOND_DEGREE_RATE = 0.10
-THIRD_DEGREE_RATE = 0.30
-FOURTH_DEGREE_RATE = 0.48
+SECOND_BRACKET_RATE = 0.10
+THIRD_BRACKET_RATE = 0.30
+FOURTH_BRACKET_RATE = 0.48
 
 HEALTH_TAX_RATE = 0.05
 
@@ -18,21 +18,21 @@ if age >= 18:
 
 tax = 0
 
-if FIRST_DEGREE <= salary and salary < SECOND_DEGREE:
-    second_degree_tax = (salary - FIRST_DEGREE) * SECOND_DEGREE_RATE
+if FIRST_BRACKET <= salary and salary < SECOND_BRACKET:
+    second_bracket_tax = (salary - FIRST_BRACKET) * SECOND_BRACKET_RATE
 
-    tax = second_degree_tax
-elif salary < THIRD_DEGREE:
-    second_degree_tax = (SECOND_DEGREE - FIRST_DEGREE) * SECOND_DEGREE_RATE
-    third_degree_tax = (salary - SECOND_DEGREE) * THIRD_DEGREE_RATE
+    tax = second_bracket_tax
+elif salary < THIRD_BRACKET:
+    second_bracket_tax = (SECOND_BRACKET - FIRST_BRACKET) * SECOND_BRACKET_RATE
+    third_bracket_tax = (salary - SECOND_BRACKET) * THIRD_BRACKET_RATE
 
-    tax = third_degree_tax + second_degree_tax
-elif THIRD_DEGREE <= salary:
-    second_degree_tax = (SECOND_DEGREE - FIRST_DEGREE) * SECOND_DEGREE_RATE
-    third_degree_tax = (THIRD_DEGREE - SECOND_DEGREE) * THIRD_DEGREE_RATE
-    fourth_degree_tax = (salary - THIRD_DEGREE) * FOURTH_DEGREE_RATE
+    tax = third_bracket_tax + second_bracket_tax
+elif THIRD_BRACKET <= salary:
+    second_bracket_tax = (SECOND_BRACKET - FIRST_BRACKET) * SECOND_BRACKET_RATE
+    third_bracket_tax = (THIRD_BRACKET - SECOND_BRACKET) * THIRD_BRACKET_RATE
+    fourth_bracket_tax = (salary - THIRD_BRACKET) * FOURTH_BRACKET_RATE
 
-    tax = fourth_degree_tax + third_degree_tax + second_degree_tax
+    tax = fourth_bracket_tax + third_bracket_tax + second_bracket_tax
 
 net_salary = salary - tax
 print("Your net salary is: " + str(net_salary))
