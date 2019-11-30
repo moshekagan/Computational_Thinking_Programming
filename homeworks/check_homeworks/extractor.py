@@ -46,22 +46,28 @@ def extract_submissions(base_subdir):
                         add_comment_to_student(current_student_name, WRONG_ZIP_FILE_FORMAT)
 
                     for file in good_submission_filenames:
-                        old_zip_file = submission_dir_wrapper + '/' + file
-                        # new_zip_file = base_subdir + '/' + file
-                        set_zip_file_name(current_student_name, file)
+                        extract_student_zip_assignment(base_subdir, current_student_name, file, submission_dir_wrapper)
 
-                        new_zip_file = base_subdir + '/' + current_student_name + '.zip'
-                        os.rename(old_zip_file, new_zip_file)
-                        # print("Moved %s to %s" % (old_zip_file, new_zip_file))
+                    if len(good_submission_filenames) == 0 and len(bad_submission_filenames) > 0:
+                        for file in bad_submission_filenames:
+                            if file.endswith('.zip'):
+                                extract_student_zip_assignment(base_subdir, current_student_name, file, submission_dir_wrapper)
 
-                        # print("About to rm: %s" % submission_dir_wrapper)
-                        try:
-                            os.rmdir(submission_dir_wrapper)
-                        except:
-                            print('ERROR:: can`t remove dir. In [%s] directory there is more then 1 zip file!' % submission_dir_wrapper)
 
-                        # print("About to extract zip file and remove it")
-                        if extract_zip_file(new_zip_file, remove_zip_extention(new_zip_file), file):
-                            os.remove(new_zip_file)
-                        else:
-                            add_comment_to_student(current_student_name, CANT_EXTRACT_ZIP_FILE)
+def extract_student_zip_assignment(base_subdir, current_student_name, file, submission_dir_wrapper):
+    old_zip_file = submission_dir_wrapper + '/' + file
+    # new_zip_file = base_subdir + '/' + file
+    set_zip_file_name(current_student_name, file)
+    new_zip_file = base_subdir + '/' + current_student_name + '.zip'
+    os.rename(old_zip_file, new_zip_file)
+    # print("Moved %s to %s" % (old_zip_file, new_zip_file))
+    # print("About to rm: %s" % submission_dir_wrapper)
+    try:
+        os.rmdir(submission_dir_wrapper)
+    except:
+        print('ERROR:: can`t remove dir. In [%s] directory there is more then 1 zip file!' % submission_dir_wrapper)
+    # print("About to extract zip file and remove it")
+    if extract_zip_file(new_zip_file, remove_zip_extention(new_zip_file), file):
+        os.remove(new_zip_file)
+    else:
+        add_comment_to_student(current_student_name, CANT_EXTRACT_ZIP_FILE)

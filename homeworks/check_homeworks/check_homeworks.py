@@ -11,8 +11,8 @@ from homeworks.check_homeworks.students import *
 
 def run_assignments(base_dir, students):
     for student_name, student in students.items():
-        if student["failed_to_check"] or len(student["comments"]) > 0 :
-            continue
+        # if student["failed_to_check"] or len(student["comments"]) > 0 :
+        #     continue
 
         print("\n-----------------------------------\t" + student_name)
 
