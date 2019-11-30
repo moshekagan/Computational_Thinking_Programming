@@ -1,4 +1,4 @@
-MINUTE_PRICE = 1
+MINUTE_PRICE = 2
 APPETIZER_PRICE = 25
 MAIN_DISH_PRICE = 44
 DESSERT_PRICE = 32.5
@@ -24,7 +24,7 @@ if is_member_club == "True":
             time_in_restaurant = time_in_restaurant - 5
         total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE + desserts * DESSERT_PRICE
 elif is_happy_hour == "True":
-    total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE * 0.5 + main_dishes * MAIN_DISH_PRICE + desserts * DESSERT_PRICE
+    total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE * 0.5 + desserts * DESSERT_PRICE
 else:
     total_price = time_in_restaurant*MINUTE_PRICE + appetizers*APPETIZER_PRICE + main_dishes*MAIN_DISH_PRICE + desserts*DESSERT_PRICE
 

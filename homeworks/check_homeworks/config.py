@@ -3,8 +3,8 @@ import time
 BASE_DIR = '/Users/moshekagan/Documents/idc/submitions'
 
 # INPUTS:
-ZIP_FILE_NAME = 'Computational Thinking and Programming-26002-20201 - 200583-Exercise #2-28462.zip'
-NUMBER_OF_ASSIGNMENT = 2
+ZIP_FILE_NAME = 'Computational Thinking and Programming-26002-20201 - 200583-Exercise #3-30848.zip'
+NUMBER_OF_ASSIGNMENT = 3
 
 SUB_DIR_NAME = 'Exercise_' + str(NUMBER_OF_ASSIGNMENT)
 BASE_SUB_DIR = BASE_DIR + "/" + SUB_DIR_NAME
@@ -14,9 +14,9 @@ DO_IT_FROM_BEGIN = True
 CHECK_EACH_STUDENT = True
 
 ASSIGNMENTS_NAMES_AND_INPUTS = {
-    "Ex2_practice_basic.py": [None],
-    "Ex2_1_palindrome.py": [[123321], [123456]],
-    "Ex2_2_common_denominators": [[10, 2, 5]]
+    "Ex3_1_practice_basics.py": [None],
+    "Ex3_2_seasons.py": [[11012019], [11081990], [31091000]],
+    "Ex3_3_resturant.py": [[4, 1, 1, 1, 0.1, "True", "False"], [45, 1, 2, 1, 0.12, "False", "False"], [1, 1, 1, 1, 0, "True", "True"], [1, 1, 1, 1, 0, "False", "True"]]
 }
 
 CSV_FILE_PATH = BASE_SUB_DIR + "/students_res_%s.csv" % NUMBER_OF_ASSIGNMENT
