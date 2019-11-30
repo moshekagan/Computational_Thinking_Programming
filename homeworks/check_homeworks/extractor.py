@@ -42,8 +42,8 @@ def extract_submissions(base_subdir):
 
                     if not len(submission_filenames) == 1:
                         add_comment_to_student(current_student_name, SHOULD_BE_SUBMITTED_ONLY_1_ZIP_FILE)
-                    if not len(good_submission_filenames) == 1 or len(bad_submission_filenames) > 0:
-                        add_comment_to_student(current_student_name, WRONG_ZIP_FILE_FORMAT)
+                    if len(bad_submission_filenames) > 0:
+                        add_comment_to_student(current_student_name, WRONG_ZIP_FILE_FORMAT % bad_submission_filenames[0])
 
                     for file in good_submission_filenames:
                         extract_student_zip_assignment(base_subdir, current_student_name, file, submission_dir_wrapper)
