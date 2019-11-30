@@ -3,8 +3,9 @@ import sys
 
 import mock
 
-from homeworks.check_homeworks.comments import PYTHON_FILE_DOES_NOT_EXIST
+from homeworks.check_homeworks.comments import PYTHON_FILE_DOES_NOT_EXIST, PROGRAM_FAILED
 from homeworks.check_homeworks.config import *
+from homeworks.check_homeworks.export_student_resualt_to_csv import save_student_into_backup
 from homeworks.check_homeworks.students import *
 
 
@@ -24,7 +25,12 @@ def run_assignments(base_dir, students):
             set_student_failed_to_check(student_name)
 
         if CHECK_EACH_STUDENT:
-            input("--------> Next? ")
+            print("\n*** Summery of %s: %s" % (student_name, str(get_student_comments(student_name))))
+            more_comments = input("Add comments to %s: " % student_name)
+            grade = input("Enter grade to %s: " % student_name)
+            add_comment_to_student(student_name, more_comments)
+            set_grade_to_student(student_name, grade)
+            save_student_into_backup(CSV_BACKUP_FILE_PATH, student_name, student)
 
 
 def _get_exercise_number_prefix(file_name):
@@ -51,11 +57,14 @@ def _run_all_student_assignments(student_dir_path, student_name):
             exercise_path = student_dir_path + "/" + exercise_file_name_of_student
             try:
                 is_run_some_exe = True
-                _run_python_script(exercise_path, inputs_to_exercise)
+                for inputs in inputs_to_exercise:
+                    print(exercise_file_name + " | " + str(inputs))
+                    _run_python_script(exercise_path, inputs)
                 exercise_results[exercise_file_name] = True
             except:
                 print("%s | Failed | %s" % (exercise_path.replace(' ', '\ '), sys.exc_info()[0]))
                 exercise_results[exercise_file_name] = exercise_path.replace(' ', '\ ')
+                add_comment_to_student(student_name, PROGRAM_FAILED + exercise_file_name)
         else:
             add_comment_to_student(student_name, PYTHON_FILE_DOES_NOT_EXIST % exercise_file_name)
             exercise_results[exercise_file_name] = False

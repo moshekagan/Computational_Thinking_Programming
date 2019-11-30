@@ -32,12 +32,12 @@ STUDENTS_NAME = [
 "Jason Gellman",
 "Jaydin Pina",
 "Jeremy Benhamou",
-"Jeremy Hasson journo",
+"Jeremy Hasson",
 "Joey Azizoff",
 "Jonathan Dar",
-"Jonathan Siles",
+"Johnathan Siles",
 "Joy Avgi",
-"Justin David Cesman",
+"JustinDavid Cesman",
 "Leah Cohen",
 "Lotan Davidyan",
 "Maya Ivgy",
@@ -51,7 +51,7 @@ STUDENTS_NAME = [
 "Noya Avraham",
 "Omri Herzikowitz",
 "Peleg Somech",
-"Rebecca g y Wong",
+"Rebecca Wong",
 "Reut Damari",
 "Ron Goldberg",
 "Rotem Cohen",
@@ -77,13 +77,18 @@ STUDENTS_NAME = [
 "Noam Manoah",
 ]
 
+
 STUDENTS = {}
 for name in STUDENTS_NAME:
-    STUDENTS[name] = {"name": name, "zip_file_name": None, "comments": [], "failed_to_check": False, "ex_results": None}
+    STUDENTS[name] = {"name": name, "grade": None, "zip_file_name": None, "comments": [], "failed_to_check": False, "ex_results": None,}
 
 
 def add_comment_to_student(student_name, comment):
     STUDENTS[student_name]["comments"].append(comment)
+
+
+def set_grade_to_student(student_name, grade):
+    STUDENTS[student_name]["grade"] = grade
 
 
 def set_student_failed_to_check(student_name):
@@ -100,6 +105,10 @@ def user_have_zip_file(student_name):
 
 def set_student_results(student_name, result):
     STUDENTS[student_name]["ex_results"] = result
+
+
+def get_student_comments(student_name):
+    return STUDENTS[student_name]["comments"]
 
 
 def save_students_result(file_name):
