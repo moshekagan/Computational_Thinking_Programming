@@ -13,20 +13,20 @@ tip = float(input("How much tip do you want to give to the waiters? (in percenta
 is_member_club = input("Do you have a membership? ")
 is_happy_hour = input("Is it happy hour? ")
 
-if is_member_club == "True":
-    if is_happy_hour == "True":
-        total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE + desserts * DESSERT_PRICE
-        total_price = total_price * 0.5
+total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE + desserts * DESSERT_PRICE
+
+# Now, total_price is the price that customer should pay.
+# The next commands check if there are some discounts and calculate them.
+
+if is_member_club == "True" and is_happy_hour == "True":
+    total_price = total_price * 0.5
+elif is_member_club == "True":
+    if time_in_restaurant < 5:
+        total_price = total_price - (time_in_restaurant * MINUTE_PRICE)
     else:
-        if time_in_restaurant < 5:
-            time_in_restaurant = 0
-        else:
-            time_in_restaurant = time_in_restaurant - 5
-        total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE + desserts * DESSERT_PRICE
+        total_price = total_price - (5 * MINUTE_PRICE)
 elif is_happy_hour == "True":
-    total_price = time_in_restaurant * MINUTE_PRICE + appetizers * APPETIZER_PRICE + main_dishes * MAIN_DISH_PRICE * 0.5 + desserts * DESSERT_PRICE
-else:
-    total_price = time_in_restaurant*MINUTE_PRICE + appetizers*APPETIZER_PRICE + main_dishes*MAIN_DISH_PRICE + desserts*DESSERT_PRICE
+    total_price = total_price - main_dishes * MAIN_DISH_PRICE * 0.5
 
 total_price_with_tip = total_price + total_price * tip
 
