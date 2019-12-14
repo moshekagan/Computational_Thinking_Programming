@@ -2,6 +2,8 @@ APPL = "APPEL"
 TESLA = "TESLA"
 VISA = "VISA"
 TEVA = "TEVA"
+RISK_THRESHOLD = 5
+YOUNG_AGE = 35
 
 age = int(input("What is your age? "))
 is_like_tech = input("Do you like technologies? ")
@@ -11,14 +13,14 @@ if age < 0 or (is_like_tech != "yes" and is_like_tech != "no") or not 1 <= risk_
     print("Invalid inputs!")
 else:
     if is_like_tech == "yes":
-        if risk_level < 5:
+        if risk_level < RISK_THRESHOLD:
             print("You should invest in " + APPL)
-        elif age < 35:
+        elif age < YOUNG_AGE:
             print("You should invest in " + TESLA)
         else:
             print("Sorry, there is no recommendation for you")
     else:
-        if risk_level < 5:
+        if risk_level < RISK_THRESHOLD:
             print("You should invest in " + VISA)
         else:
             print("You should invest in " + TEVA)
