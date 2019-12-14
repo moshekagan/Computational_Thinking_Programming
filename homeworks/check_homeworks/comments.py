@@ -1,4 +1,4 @@
-WRONG_ZIP_FILE_FORMAT = " -5 [%s] Wrong zip file format (should be like: EX#_FirsName_LastName_ID.zip)"
+WRONG_ZIP_FILE_FORMAT = " -5 [%s] Wrong zip file format (should be like: Ex#_FirsName_LastName_ID.zip)"
 SHOULD_BE_SUBMITTED_ONLY_1_ZIP_FILE = " -5 Should submit only 1 zip file"
 PYTHON_FILE_DOES_NOT_EXIST = " Python file does not exist [%s]"
 CANT_EXTRACT_ZIP_FILE = " Can't extract zip file"
@@ -15,6 +15,8 @@ PROGRAM_FAILED = " -5 Program failed - "
 NOT_IMPLEMENT = " -10 didn't implement - "
 
 ONLY_PY_FILES = "-3 include only python files (.py) and do not include venv directory or any other files!"
-DIDNT_FOLLOW_EXAMPLE = " -2 you didn't follow example inputs"
+DIDNT_FOLLOW_EXAMPLE = " -2 you didn't follow the example inputs"
 SUBMISSION_LATE = "-5 Submission late"
 CONST_VARS = "const - CAPITAL_LETTERS variables - small_letters"
+
+
