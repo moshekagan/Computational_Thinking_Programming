@@ -1,5 +1,5 @@
 a = int(input("Base: "))
-b = int(input("power: "))
+b = int(input("Power: "))
 
 if b == 0:
     print(1)
@@ -12,4 +12,4 @@ for i in range(0, b-1):
         answer = answer + increment
     increment = answer
 
-print(increment)
+print(str(a) + "^" + str(b) + " = " + str(increment))
