@@ -1,15 +1,15 @@
-a = int(input("Base: "))
-b = int(input("Power: "))
+base = int(input("Base: "))
+power = int(input("Power: "))
 
-if b == 0:
+if power == 0:
     print(1)
 
-answer = a
-increment = a
+answer = base
+increment = base
 
-for i in range(0, b-1):
-    for j in range(0, a-1):
+for i in range(0, power - 1):
+    for j in range(0, base - 1):
         answer = answer + increment
     increment = answer
 
-print(str(a) + "^" + str(b) + " = " + str(increment))
+print(str(base) + "^" + str(power) + " = " + str(increment))
