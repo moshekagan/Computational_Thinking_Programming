@@ -59,12 +59,23 @@ def _run_all_student_assignments(student_dir_path, student_name):
                 is_run_some_exe = True
                 for inputs in inputs_to_exercise:
                     print(exercise_file_name + " | " + str(inputs))
-                    _run_python_script(exercise_path, inputs)
+                    try:
+                        if exercise_path != '/Users/moshekagan/Documents/idc/submitions/Exercise_5/Edan Dooga/Ex5_4_refactor.py':
+                            _run_python_script(exercise_path, inputs)
+                    except SystemExit as e:
+                        print("----------------------------------------> Exit... " + str(e))
+                    except BaseException as e:
+                        error = str(sys.exc_info()[1])
+                        print("%s | Failed | %s" % (exercise_path.replace(' ', '\ '), error))
+                        exercise_results[exercise_file_name] = exercise_path.replace(' ', '\ ')
+                        add_comment_to_student(student_name, PROGRAM_FAILED % (
+                        exercise_file_name, "[" + error + "]" if error != 'None' else ""))
                 exercise_results[exercise_file_name] = True
-            except:
-                print("%s | Failed | %s" % (exercise_path.replace(' ', '\ '), sys.exc_info()[0]))
+            except BaseException as e:
+                error = str(sys.exc_info()[1])
+                print("%s | Failed | %s" % (exercise_path.replace(' ', '\ '), error))
                 exercise_results[exercise_file_name] = exercise_path.replace(' ', '\ ')
-                add_comment_to_student(student_name, PROGRAM_FAILED + exercise_file_name)
+                add_comment_to_student(student_name, PROGRAM_FAILED % (exercise_file_name, "[" + error + "]" if error != 'None' else ""))
         else:
             add_comment_to_student(student_name, PYTHON_FILE_DOES_NOT_EXIST % exercise_file_name)
             exercise_results[exercise_file_name] = False

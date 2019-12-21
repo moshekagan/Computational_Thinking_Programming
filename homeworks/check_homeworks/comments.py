@@ -13,11 +13,14 @@ MEANIGFULL_NAMES = " -2 Use meaningful names to your variables"
 WRONG_OUTPUT = " -5 Wrong output (check solution) - ex"
 DIDNT_FOLLOW_EXAMPLE = " -3 you didn't follow the example inputs - ex"
 DIDNT_MAKE_INPUT_VALIDATION = " -3 no inputs validation - ex"
-PROGRAM_FAILED = " -5 Program failed - "
+PROGRAM_FAILED = " -5 Program failed - %s %s"
 NOT_IMPLEMENT = " -10 didn't implement - "
 
-ONLY_PY_FILES = "-3 include only python files (.py) and do not include venv directory or any other files!"
+ONLY_PY_FILES = "-3 include only python files (.py) and do not include venv directory or any other files (check hidden files also)!"
 
+REDUCE_ONLY_ONCE_FOR_EXERCISE = "Reduced -5 only once per failed Exercise"
+DIDNT_CHANGED_VARIABLES_NAMES = "-3 didnt changed variables names ex4"
+"-5 Ex5_4_refactor.py wrong explanation of what the program does. It's checking if a number is a palindrome"
 SUBMISSION_LATE = "-5 Submission late"
 CONST_VARS = "const - CAPITAL_LETTERS variables - small_letters"
 

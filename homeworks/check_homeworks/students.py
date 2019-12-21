@@ -115,10 +115,10 @@ ALTERNATIVE_NAMES = {
 "Jason Gellman": "Jason Gellman",
 "Jaydin Pina": "Jaydin Pina",
 "Jeremy Benhamou": "Jeremy Benhamou",
-"Jeremy Hasson journo": "Jeremy Hasson",
+"Jeremy Hasson journo": "Jeremy Hasson Journo",
 "Jeremy Hassonjourno": "Jeremy Hasson Journo",
 "Jeremy Hasson Journo": "Jeremy Hasson Journo",
-"Jeremy Hasson": "Jeremy Hasson",
+"Jeremy Hasson": "Jeremy Hasson Journo",
 "Joey Azizoff": "Joey Azizoff",
 "Jonathan Dar": "Jonathan Dar",
 "Jonathan Siles": "Johnathan Siles",
@@ -170,7 +170,7 @@ ALTERNATIVE_NAMES = {
 
 
 def add_comment_to_student(student_name, comment):
-    STUDENTS[ALTERNATIVE_NAMES[student_name]]["comments"].append(comment)
+    STUDENTS[ALTERNATIVE_NAMES[student_name]]["comments"].append(comment.replace(',', " "))
 
 
 def set_grade_to_student(student_name, grade):
