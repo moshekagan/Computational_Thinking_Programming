@@ -10,12 +10,14 @@ CONST_IS_NOT_CAMELCASE = " -2 Consts should be written in CAPITAL_LETTERS"
 DIDNT_USE_CONSTS = " -2 You didn't use constants"
 MEANIGFULL_NAMES = " -2 Use meaningful names to your variables"
 
-WRONG_OUTPUT = " -5 Wrong output - ex"
+WRONG_OUTPUT = " -5 Wrong output (check solution) - ex"
+DIDNT_FOLLOW_EXAMPLE = " -3 you didn't follow the example inputs - ex"
+DIDNT_MAKE_INPUT_VALIDATION = " -3 no inputs validation - ex"
 PROGRAM_FAILED = " -5 Program failed - "
 NOT_IMPLEMENT = " -10 didn't implement - "
 
 ONLY_PY_FILES = "-3 include only python files (.py) and do not include venv directory or any other files!"
-DIDNT_FOLLOW_EXAMPLE = " -2 you didn't follow the example inputs"
+
 SUBMISSION_LATE = "-5 Submission late"
 CONST_VARS = "const - CAPITAL_LETTERS variables - small_letters"
 
