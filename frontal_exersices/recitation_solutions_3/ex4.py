@@ -1,8 +1,8 @@
 num_1 = int(input("insert a number: "))
 num_2 = int(input("insert a number: "))
 
-result = 0
-for k in range(0, num_1):
-    result = result + num_2
+res = 0
+for i in range(0, num_2):
+    res = num_1 + res
 
-print(str(num_1) + " * " + str(num_2) + " = " + str(result))
+print(str(num_1) + ' * ' + str(num_2) + ' = ' + str(res))

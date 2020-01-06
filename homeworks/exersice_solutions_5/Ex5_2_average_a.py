@@ -1,6 +1,6 @@
 iteration_number = int(input("How many number would you like to include in the average? "))
 
-if iteration_number < 0:
+if iteration_number <= 0:
     print("Invalid input!")
 else:
     sum = 0

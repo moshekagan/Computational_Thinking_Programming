@@ -1,3 +1,6 @@
+
+
+
 base = int(input("Insert a base number: "))
 
 while base < 1:
