@@ -13,6 +13,10 @@ for i in range(0, len(list2)):
 
 print("Common values:")
 for i in range(0, len(list1)):
+    is_in_list = False
     for j in range(0, len(list2)):
+        if is_in_list:
+            break
         if list1[i] == list2[j]:
+            is_in_list = True
             print(str(list1[i]))
