@@ -15,6 +15,7 @@ DIDNT_FOLLOW_EXAMPLE = " -3 you didn't follow the example inputs - ex"
 DIDNT_MAKE_INPUT_VALIDATION = " -3 no inputs validation - ex"
 PROGRAM_FAILED = " -5 Program failed - %s %s"
 NOT_IMPLEMENT = " -10 didn't implement - "
+WRONG_CALCULATION = "-3 Wrong way of calculation (check solution) - ex1 - minimum should be calculated"
 
 ONLY_PY_FILES = "-3 include only python files (.py) and do not include venv directory or any other files (check hidden files also)!"
 
