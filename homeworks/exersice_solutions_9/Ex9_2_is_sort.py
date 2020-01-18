@@ -17,13 +17,3 @@ if is_sorted:
     print("The list is sorted")
 else:
     print("The list is not sorted")
-
-
-example_list = [None]*3
-# example_list = [None, None, None]
-example_list[0] = 100
-example_list[1] = 200
-example_list[2] = 300
-example_list[3] = 400 # IndexError: list assignment index out of range
-
-
